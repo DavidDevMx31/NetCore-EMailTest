@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace NetCore_EmailTest
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for SendTestMailWindow.xaml
     /// </summary>
     public partial class SendTestMailWindow : Window
     {
@@ -27,14 +27,23 @@ namespace NetCore_EmailTest
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
-            //Llenar objeto
-
-            //Pasar datos a Domain
         }
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)
         {
+            txtSMTPServer.Text = string.Empty;
+            txtSMTPPort.Text = string.Empty;
+            txtSMTPEmail.Text = string.Empty;
+            txtSMTPPassword.Text = string.Empty;
+            txtFromName.Text = string.Empty;
+            
+            txtToEmail.Text = string.Empty;
+            txtToName.Text = string.Empty;
+            
+            txtMailSubject.Text = string.Empty;
+            txtMailMessage.Text = string.Empty;
 
+            cbUseSSL.IsChecked = false;
         }
     }
 }

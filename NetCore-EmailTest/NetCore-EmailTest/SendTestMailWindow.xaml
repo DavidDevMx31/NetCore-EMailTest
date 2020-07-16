@@ -45,7 +45,7 @@
                     <Label Content="Name:" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" />
                     <TextBox x:Name="txtFromName" TextWrapping="Wrap" Text="" MaxLines="1" ToolTip="The name of the issuer of the email" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="3" />
 
-                    <CheckBox Content="Use SSL" HorizontalAlignment="Center" Height="30" VerticalAlignment="Stretch" Grid.Row="3" Grid.Column="3" HorizontalContentAlignment="Center" Margin="3" />
+                    <CheckBox x:Name="cbUseSSL" Content="Use SSL" HorizontalAlignment="Center" Height="30" VerticalAlignment="Stretch" Grid.Row="3" Grid.Column="3" HorizontalContentAlignment="Center" Margin="3" />
                 </Grid>
             </GroupBox>
 
