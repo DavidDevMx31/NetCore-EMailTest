@@ -24,5 +24,17 @@ namespace NetCore_EmailTest
         {
             InitializeComponent();
         }
+
+        private void SendButton_Click(object sender, RoutedEventArgs e)
+        {
+            //Llenar objeto
+
+            //Pasar datos a Domain
+        }
+
+        private void ClearButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

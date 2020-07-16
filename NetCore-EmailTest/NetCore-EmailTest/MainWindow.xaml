@@ -35,7 +35,7 @@
                     <TextBox x:Name="txtSMTPPort" TextWrapping="Wrap" Text="" MaxLines="1" ToolTip="The SMTP server's port" Grid.Row="1" Grid.Column="4" Margin="3" />
 
                     <Label Content="Email:" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" />
-                    <TextBox x:Name="txtSMTPUserName" TextWrapping="Wrap" Text="" MaxLines="1" Grid.Row="2" Grid.Column="1" Margin="3"
+                    <TextBox x:Name="txtSMTPEmail" TextWrapping="Wrap" Text="" MaxLines="1" Grid.Row="2" Grid.Column="1" Margin="3"
                              ToolTip="The email from where the message will be sent" />
 
                     <Label Content="Password:" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center" Grid.Row="2" Grid.Column="2" />
@@ -96,7 +96,20 @@
 
             </GroupBox>
 
-            <Button Name="SendButton" Margin="180,30" Height="40" >Send test email</Button>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Button x:Name="SendButton" Margin="10" Height="40" Grid.Row="0" Grid.Column="1" Content="Send test email" Click="SendButton_Click"></Button>
+                <Button x:Name="ClearButton" Margin="10" Height="40" Grid.Row="0" Grid.Column="0" Content="Clear form"></Button>
+            </Grid>
+
         </StackPanel>
     </Grid>
 </Window>
