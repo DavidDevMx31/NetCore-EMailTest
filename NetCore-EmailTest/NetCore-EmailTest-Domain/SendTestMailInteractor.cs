@@ -7,6 +7,13 @@ namespace NetCore_EmailTest_Domain
 {
     public class SendTestMailInteractor : ISendTestMail
     {
+        private readonly IEmailSender emailSender;
+
+        public SendTestMailInteractor(IEmailSender emailSender)
+        {
+           this.emailSender = emailSender ?? throw new ArgumentNullException("emailSender");
+        }
+
         public void StartProcess(SendTestMailRequest request)
         {
             var validationResult = ValidateRequest(request);
