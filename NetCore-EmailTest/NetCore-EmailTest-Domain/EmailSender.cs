@@ -7,7 +7,7 @@ using System.Text;
 
 namespace NetCore_EmailTest_Domain
 {
-    internal class EmailSender : IEmailSender
+    public class EmailSender : IEmailSender
     {
         public void SendEmail(TestMailModel testMail)
         {

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NetCore_EmailTest_Domain;
+using NetCore_EmailTest_Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,13 +22,30 @@ namespace NetCore_EmailTest
     /// </summary>
     public partial class SendTestMailWindow : Window
     {
+        private readonly ISendTestMail interactor;
+
         public SendTestMailWindow()
         {
+            this.interactor = new SendTestMailInteractor(new EmailSender());
             InitializeComponent();
         }
 
         private void SendButton_Click(object sender, RoutedEventArgs e)
         {
+            var request = new SendTestMailRequest() 
+            {
+                Server = txtSMTPServer.Text.Trim(),
+                Port = txtSMTPPort.Text.Trim(),
+                Username = txtSMTPEmail.Text.Trim(),
+                Password = txtSMTPPassword.Text.Trim(),
+                FromName = txtFromName.Text.Trim(),
+                ToName = txtToName.Text.Trim(),
+                ToAddress = txtToEmail.Text.Trim(),
+                MailSubject = txtMailSubject.Text.Trim(),
+                MailMessage = txtMailMessage.Text.Trim(),
+                UseSSL = cbUseSSL.IsChecked ?? false
+            };
+            interactor.StartProcess(request);
         }
 
         private void ClearButton_Click(object sender, RoutedEventArgs e)

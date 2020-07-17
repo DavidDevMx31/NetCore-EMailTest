@@ -26,7 +26,7 @@ namespace NetCore_EmailTest_Domain.Models
             this.Port = port;
             this.UserName = username;
             this.Password = password;
-            this.UseSSL = UseSSL;
+            this.UseSSL = useSSL;
         }
     }
 
