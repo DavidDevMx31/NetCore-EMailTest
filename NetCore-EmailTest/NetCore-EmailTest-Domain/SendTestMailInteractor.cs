@@ -22,6 +22,14 @@ namespace NetCore_EmailTest_Domain
             {
                 var testMail = CreateTestMailModelFromRequest(request);
                 
+                try
+                {
+                    emailSender.SendEmail(testMail);
+                }
+                catch (Exception ex)
+                {
+                    // Show exception message to the user
+                }
             }
             // Show errors to the user
         }
