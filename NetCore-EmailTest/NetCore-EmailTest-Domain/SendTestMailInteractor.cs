@@ -21,6 +21,7 @@ namespace NetCore_EmailTest_Domain
             if (string.IsNullOrWhiteSpace(validationResult))
             {
                 var testMail = CreateTestMailModelFromRequest(request);
+                
             }
             // Show errors to the user
         }

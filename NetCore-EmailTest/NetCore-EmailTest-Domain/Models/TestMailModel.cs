@@ -4,7 +4,7 @@ using System.Text;
 
 namespace NetCore_EmailTest_Domain.Models
 {
-    internal class TestMailModel
+    public class TestMailModel
     {
         public EmailConfiguration SMTPConfiguration { get; set; }
         public EmailAccount From { get; set; }
@@ -12,7 +12,7 @@ namespace NetCore_EmailTest_Domain.Models
         public EmailContent Content { get; set; }
     }
 
-    internal class EmailConfiguration
+    public class EmailConfiguration
     {
         public string Server { get; private set; }
         public int Port { get; private set; }
@@ -30,7 +30,7 @@ namespace NetCore_EmailTest_Domain.Models
         }
     }
 
-    internal class EmailAccount
+    public class EmailAccount
     {
         public string UserName { get; private set; }
         public string Address { get; private set; }
@@ -42,7 +42,7 @@ namespace NetCore_EmailTest_Domain.Models
         }
     }
 
-    internal class EmailContent
+    public class EmailContent
     {
         public string Subject { get; private set; }
         public string Message { get; private set; }
