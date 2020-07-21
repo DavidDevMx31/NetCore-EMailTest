@@ -6,21 +6,25 @@ namespace NetCore_EmailTest_Presenter
 {
     public class SendTestMailPresenter : ISendTestMailPresenter
     {
+        private ISendTestMailView view;
+
+        public void SetView(ISendTestMailView view)
+        {
+            this.view = view ?? throw new ArgumentNullException("view");
+        }
+
         public void PresentResult(SendTestMailResult testMailResult)
         {
-            string title = string.Empty;
-            string message = string.Empty;
-
             switch (testMailResult.Status)
             {
                 case ResultStatus.ValidationError:
-                    System.Diagnostics.Debug.WriteLine($"Validation error: The following errors were found:/n{testMailResult.Message}");
+                    view.ShowValidationError("Validation error", $"The following errors were found:\n{testMailResult.Message}");
                     break;
                 case ResultStatus.ErrorSendingMail:
-                    System.Diagnostics.Debug.WriteLine($"There was an error :/n{testMailResult.Message}");
+                    view.ShowSendingMailError("Error", $"The email could not be sent due to the next error:\n{testMailResult.Message}");
                     break;
                 case ResultStatus.Success:
-                    System.Diagnostics.Debug.WriteLine($"The email was sent successfully!");
+                    view.ShowSuccessResult("Email sent", "The email was sent successfully!");
                     break;
             }
         }
