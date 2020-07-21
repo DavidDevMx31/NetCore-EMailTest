@@ -5,4 +5,8 @@
     <RootNamespace>NetCore_EmailTest_Presenter</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NetCore-EmailTest-Domain\NetCore-EmailTest-Domain.csproj" />
+  </ItemGroup>
+
 </Project>
