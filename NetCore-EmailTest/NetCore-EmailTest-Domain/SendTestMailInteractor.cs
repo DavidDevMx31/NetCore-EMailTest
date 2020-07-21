@@ -8,10 +8,12 @@ namespace NetCore_EmailTest_Domain
     public class SendTestMailInteractor : ISendTestMail
     {
         private readonly IEmailSender emailSender;
+        private readonly ISendTestMailPresenter presenter;
 
-        public SendTestMailInteractor(IEmailSender emailSender)
+        public SendTestMailInteractor(IEmailSender emailSender, ISendTestMailPresenter presenter)
         {
-           this.emailSender = emailSender ?? throw new ArgumentNullException("emailSender");
+            this.emailSender = emailSender ?? throw new ArgumentNullException("emailSender");
+            this.presenter = presenter ?? throw new ArgumentNullException("presenter");
         }
 
         public void StartProcess(SendTestMailRequest request)
@@ -21,17 +23,19 @@ namespace NetCore_EmailTest_Domain
             if (string.IsNullOrWhiteSpace(validationResult))
             {
                 var testMail = CreateTestMailModelFromRequest(request);
-                
+
                 try
                 {
                     emailSender.SendEmail(testMail);
+                    presenter.PresentResult(new SendTestMailResult(ResultStatus.Success, string.Empty));
                 }
                 catch (Exception ex)
                 {
-                    // Show exception message to the user
+                    presenter.PresentResult(new SendTestMailResult(ResultStatus.ErrorSendingMail, ex.Message));
                 }
             }
-            // Show errors to the user
+            else
+                presenter.PresentResult(new SendTestMailResult(ResultStatus.ValidationError, validationResult));
         }
 
         private string ValidateRequest(SendTestMailRequest request)
@@ -43,7 +47,7 @@ namespace NetCore_EmailTest_Domain
             ValidateEmailContentRequiredFields(request, errorsFound);
             
             if (!int.TryParse(request.Port, out int port))
-                errorsFound.AppendLine("The port contain an integer number.");
+                errorsFound.AppendLine("The port must contain an integer number.");
 
             return errorsFound.ToString();
         }

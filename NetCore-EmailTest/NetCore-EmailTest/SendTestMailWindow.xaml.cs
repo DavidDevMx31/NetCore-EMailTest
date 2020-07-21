@@ -1,5 +1,6 @@
 ﻿using NetCore_EmailTest_Domain;
 using NetCore_EmailTest_Domain.Models;
+using NetCore_EmailTest_Presenter;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,13 +21,15 @@ namespace NetCore_EmailTest
     /// <summary>
     /// Interaction logic for SendTestMailWindow.xaml
     /// </summary>
-    public partial class SendTestMailWindow : Window
+    public partial class SendTestMailWindow : Window, ISendTestMailView
     {
         private readonly ISendTestMail interactor;
 
         public SendTestMailWindow()
         {
-            this.interactor = new SendTestMailInteractor(new EmailSender());
+            var presenter = new SendTestMailPresenter();
+            this.interactor = new SendTestMailInteractor(new EmailSender(), presenter);
+            presenter.SetView(this);
             InitializeComponent();
         }
 
@@ -64,5 +67,24 @@ namespace NetCore_EmailTest
 
             cbUseSSL.IsChecked = false;
         }
+
+        #region ISendTestMailView implementation
+
+        public void ShowValidationError(string title, string message)
+        {
+            MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Exclamation);
+        }
+
+        public void ShowSendingMailError(string title, string message)
+        {
+            MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        public void ShowSuccessResult(string title, string message)
+        {
+            MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.None);
+        }
+
+        #endregion
     }
 }

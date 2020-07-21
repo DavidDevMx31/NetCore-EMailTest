@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NetCore-EmailTest-Domain\NetCore-EmailTest-Domain.csproj" />
+    <ProjectReference Include="..\NetCore-EmailTest-Presenter\NetCore-EmailTest-Presenter.csproj" />
   </ItemGroup>
 
 </Project>
