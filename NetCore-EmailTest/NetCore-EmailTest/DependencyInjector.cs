@@ -12,9 +12,9 @@ namespace NetCore_EmailTest
     {
         static internal Window CreateSendTestEmailWindow()
         {
-            var mailSender = new SendEmailWorker();
+            var emailWorker = new SendEmailWorker();
             var presenter = new SendTestMailPresenter();
-            var interactor = new SendTestMailInteractor(mailSender, presenter);
+            var interactor = new SendTestMailInteractor(emailWorker, presenter);
             var view = new SendTestMailWindow(interactor);
             presenter.SetView(view);
             return view;

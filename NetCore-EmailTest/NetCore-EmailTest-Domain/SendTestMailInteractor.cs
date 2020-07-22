@@ -7,12 +7,12 @@ namespace NetCore_EmailTest_Domain
 {
     public class SendTestMailInteractor : ISendTestMail
     {
-        private readonly ISendEmailWorker emailSender;
+        private readonly ISendEmailWorker mailWorker;
         private readonly ISendTestMailPresenter presenter;
 
-        public SendTestMailInteractor(ISendEmailWorker emailSender, ISendTestMailPresenter presenter)
+        public SendTestMailInteractor(ISendEmailWorker worker, ISendTestMailPresenter presenter)
         {
-            this.emailSender = emailSender ?? throw new ArgumentNullException("emailSender");
+            this.mailWorker = worker ?? throw new ArgumentNullException("emailSender");
             this.presenter = presenter ?? throw new ArgumentNullException("presenter");
         }
 
@@ -26,7 +26,7 @@ namespace NetCore_EmailTest_Domain
 
                 try
                 {
-                    emailSender.SendEmail(testMail);
+                    mailWorker.SendEmail(testMail);
                     presenter.PresentResult(new SendTestMailResult(ResultStatus.Success, string.Empty));
                 }
                 catch (Exception ex)
