@@ -1,0 +1,22 @@
+﻿using NetCore_EmailTest_Domain;
+using NetCore_EmailTest_Presenter;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Windows;
+
+namespace NetCore_EmailTest
+{
+    static internal class DependencyInjector
+    {
+        static internal Window CreateSendTestEmailWindow()
+        {
+            var mailSender = new EmailSender();
+            var presenter = new SendTestMailPresenter();
+            var interactor = new SendTestMailInteractor(mailSender, presenter);
+            var view = new SendTestMailWindow(interactor);
+            presenter.SetView(view);
+            return view;
+        }
+    }
+}

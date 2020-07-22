@@ -12,4 +12,10 @@
     <ProjectReference Include="..\NetCore-EmailTest-Presenter\NetCore-EmailTest-Presenter.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Update="SendTestMailWindow.xaml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Page>
+  </ItemGroup>
+
 </Project>

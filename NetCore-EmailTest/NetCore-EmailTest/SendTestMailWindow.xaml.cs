@@ -25,11 +25,9 @@ namespace NetCore_EmailTest
     {
         private readonly ISendTestMail interactor;
 
-        public SendTestMailWindow()
+        public SendTestMailWindow(ISendTestMail interactor)
         {
-            var presenter = new SendTestMailPresenter();
-            this.interactor = new SendTestMailInteractor(new EmailSender(), presenter);
-            presenter.SetView(this);
+            this.interactor = interactor ?? throw new ArgumentNullException("interactor");
             InitializeComponent();
         }
 
