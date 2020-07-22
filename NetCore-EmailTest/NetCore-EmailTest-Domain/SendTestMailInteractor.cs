@@ -7,10 +7,10 @@ namespace NetCore_EmailTest_Domain
 {
     public class SendTestMailInteractor : ISendTestMail
     {
-        private readonly IEmailSender emailSender;
+        private readonly ISendEmailWorker emailSender;
         private readonly ISendTestMailPresenter presenter;
 
-        public SendTestMailInteractor(IEmailSender emailSender, ISendTestMailPresenter presenter)
+        public SendTestMailInteractor(ISendEmailWorker emailSender, ISendTestMailPresenter presenter)
         {
             this.emailSender = emailSender ?? throw new ArgumentNullException("emailSender");
             this.presenter = presenter ?? throw new ArgumentNullException("presenter");

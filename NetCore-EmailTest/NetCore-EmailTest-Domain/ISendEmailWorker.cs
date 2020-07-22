@@ -2,7 +2,7 @@
 
 namespace NetCore_EmailTest_Domain
 {
-    public interface IEmailSender
+    public interface ISendEmailWorker
     {
         void SendEmail(TestMailModel testMail);
     }

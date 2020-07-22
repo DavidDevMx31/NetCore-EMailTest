@@ -1,11 +1,12 @@
 ﻿using MailKit.Net.Smtp;
 using MimeKit;
+using NetCore_EmailTest_Domain;
 using NetCore_EmailTest_Domain.Models;
 using System;
 
 namespace NetCore_EmailTest_Infrastructure
 {
-    public class SendEmailWorker
+    public class SendEmailWorker : ISendEmailWorker
     {
         public void SendEmail(TestMailModel testMail)
         {
