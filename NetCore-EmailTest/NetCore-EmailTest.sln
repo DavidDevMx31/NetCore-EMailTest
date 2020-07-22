@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCore-EmailTest", "NetCor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCore-EmailTest-Domain", "NetCore-EmailTest-Domain\NetCore-EmailTest-Domain.csproj", "{8ADE744D-3EB0-4831-B561-E00DF3EEFA8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore-EmailTest-Presenter", "NetCore-EmailTest-Presenter\NetCore-EmailTest-Presenter.csproj", "{5AEE62FE-D5A6-44E5-A8B5-9705A2C1B991}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetCore-EmailTest-Presenter", "NetCore-EmailTest-Presenter\NetCore-EmailTest-Presenter.csproj", "{5AEE62FE-D5A6-44E5-A8B5-9705A2C1B991}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore-EmailTest-Infrastructure", "NetCore-EmailTest-Infrastructure\NetCore-EmailTest-Infrastructure.csproj", "{85DFFF9D-2A92-41F5-9C3B-6F81F43FA44B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{5AEE62FE-D5A6-44E5-A8B5-9705A2C1B991}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AEE62FE-D5A6-44E5-A8B5-9705A2C1B991}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AEE62FE-D5A6-44E5-A8B5-9705A2C1B991}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85DFFF9D-2A92-41F5-9C3B-6F81F43FA44B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85DFFF9D-2A92-41F5-9C3B-6F81F43FA44B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85DFFF9D-2A92-41F5-9C3B-6F81F43FA44B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85DFFF9D-2A92-41F5-9C3B-6F81F43FA44B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

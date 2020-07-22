@@ -5,8 +5,4 @@
     <RootNamespace>NetCore_EmailTest_Domain</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="NETCore.MailKit" Version="2.0.3" />
-  </ItemGroup>
-
 </Project>

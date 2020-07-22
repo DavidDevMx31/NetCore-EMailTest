@@ -1,4 +1,5 @@
 ﻿using NetCore_EmailTest_Domain;
+using NetCore_EmailTest_Infrastructure;
 using NetCore_EmailTest_Presenter;
 using System;
 using System.Collections.Generic;
@@ -11,9 +12,9 @@ namespace NetCore_EmailTest
     {
         static internal Window CreateSendTestEmailWindow()
         {
-            var mailSender = new EmailSender();
+            var emailWorker = new SendEmailWorker();
             var presenter = new SendTestMailPresenter();
-            var interactor = new SendTestMailInteractor(mailSender, presenter);
+            var interactor = new SendTestMailInteractor(emailWorker, presenter);
             var view = new SendTestMailWindow(interactor);
             presenter.SetView(view);
             return view;
