@@ -90,8 +90,8 @@ namespace NetCore_EmailTest_Domain
         private TestMailModel CreateTestMailModelFromRequest(SendTestMailRequest request)
         {
             var port = int.Parse(request.Port);
-            var fromName = string.IsNullOrWhiteSpace(request.FromName) ? GetUserNameFromAddress(request.Username) : request.FromName;
-            var toName = string.IsNullOrWhiteSpace(request.ToName) ? GetUserNameFromAddress(request.ToAddress) : request.ToName;
+            var fromName = string.IsNullOrWhiteSpace(request.FromName) ? GetUserNameFromEmailAddress(request.Username) : request.FromName;
+            var toName = string.IsNullOrWhiteSpace(request.ToName) ? GetUserNameFromEmailAddress(request.ToAddress) : request.ToName;
 
             var smtpConfiguration = new EmailConfiguration(request.Server.Trim(), port, request.Username.Trim(), 
                 request.Password.Trim(), request.UseSSL);
@@ -107,7 +107,7 @@ namespace NetCore_EmailTest_Domain
             return mailModel;
         }
 
-        private string GetUserNameFromAddress(string address)
+        private string GetUserNameFromEmailAddress(string address)
         {
             var atIndex = address.IndexOf('@');
             return address.Substring(0, atIndex - 1);
