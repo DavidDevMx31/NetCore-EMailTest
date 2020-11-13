@@ -18,10 +18,10 @@ namespace NetCore_EmailTest_Presenter
             switch (testMailResult.Status)
             {
                 case ResultStatus.ValidationError:
-                    view.ShowValidationError("Validation error", $"The following errors were found:\n{testMailResult.Message}");
+                    view.ShowValidationError("Validation error", $"The following errors were found:{Environment.NewLine}{testMailResult.Message}");
                     break;
                 case ResultStatus.ErrorSendingMail:
-                    view.ShowSendingMailError("Error", $"The email could not be sent due to the next error:\n{testMailResult.Message}");
+                    view.ShowSendingMailError("Error", $"The email could not be sent due to the next error:{Environment.NewLine}{testMailResult.Message}");
                     break;
                 case ResultStatus.Success:
                     view.ShowSuccessResult("Email sent", "The email was sent successfully!");
