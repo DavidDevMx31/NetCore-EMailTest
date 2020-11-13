@@ -31,7 +31,7 @@ namespace NetCore_EmailTest_Infrastructure
 
             try
             {
-                client.Connect(configuration.Server, configuration.Port, configuration.UseSSL);
+                client.Connect(configuration.Server, configuration.Port, MailKit.Security.SecureSocketOptions.Auto);
                 client.AuthenticationMechanisms.Remove("XOAUTH2");
                 client.Authenticate(configuration.UserName, configuration.Password);
 
@@ -42,11 +42,11 @@ namespace NetCore_EmailTest_Infrastructure
                 System.Diagnostics.Debug.Write(ex.InnerException);
                 throw;
             }
-            //finally
-            //{
-            //    client.Disconnect(true);
-            //    client.Dispose();
-            //}
+            finally
+            {
+                client.Disconnect(true);
+                client.Dispose();
+            }
         }
     }
 }
