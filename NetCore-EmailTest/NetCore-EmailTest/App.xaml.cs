@@ -15,7 +15,6 @@ namespace NetCore_EmailTest
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            //MainWindow = new SendTestMailWindow();
             MainWindow = DependencyInjector.CreateSendTestEmailWindow();
             MainWindow.Show();
             base.OnStartup(e);
